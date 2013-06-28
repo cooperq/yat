@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="permlab_flashlight">Flashlight Permisison</string>
     <string name="permdesc_flashlight">Permission to turn on and off flashlight</string>
-    <string name="not_the_droids">These are not the droids you are looking for! This app is only useful as a widget, please add the widget to your home screen.</string>
+    <string name="not_the_droids">Use the buttons below to turn on different types of flashlights, or drag the widget to your homescreen to turn on the camera flash torch with one easy click.</string>
     <string name="title_activity_on_screen_torch">Yet Another Torch</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
