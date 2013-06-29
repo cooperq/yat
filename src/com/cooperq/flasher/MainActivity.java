@@ -1,27 +1,34 @@
 package com.cooperq.flasher;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.RemoteViews;
+import android.view.View.OnClickListener;
 
 import com.cooperq.yat.R;
 
 public class MainActivity extends Activity {
 	public final static String NIGHT_VISION = "com.cooperq.flasher.NIGHT_VISION";
-	private Camera cam;
-	private boolean light_on;
+	private Camera mCam;
+	private boolean mIsLightOn;
 
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        View powerButton = findViewById(R.id.power_button);
+        powerButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				MainActivity.this.startNightVisionTorch(v);
+			}
+		});
     }
     
 
@@ -33,19 +40,19 @@ public class MainActivity extends Activity {
     }
     
     public void startCameraFlash(View view){
-    	if(!light_on){
- 			cam = Camera.open();
- 	 		Parameters p = cam.getParameters();
+    	if(!mIsLightOn){
+ 			mCam = Camera.open();
+ 	 		Parameters p = mCam.getParameters();
  	 		p.setFlashMode(Parameters.FLASH_MODE_TORCH);
- 	 		cam.setParameters(p);
- 	 		cam.startPreview();
- 	 		light_on = true;
+ 	 		mCam.setParameters(p);
+ 	 		mCam.startPreview();
+ 	 		mIsLightOn = true;
  		} else {
- 			if(cam != null){
- 				cam.stopPreview();
- 				cam.release();
- 				cam = null;
- 				light_on = false;
+ 			if(mCam != null){
+ 				mCam.stopPreview();
+ 				mCam.release();
+ 				mCam = null;
+ 				mIsLightOn = false;
  			}
  		}  
         

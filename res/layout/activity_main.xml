@@ -40,22 +40,22 @@
     android:layout_height="fill_parent" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
-        android:text="Choose Torch Type" />
+        android:text="@string/flashlight_settings" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/power_button"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/settings_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="28dp"
-        android:src="@drawable/flash_off_large" 
-        android:onClick="startNightVisionTorch"/>
+        android:contentDescription="@string/power_button"
+        android:src="@drawable/flash_off_large" />
 
 </RelativeLayout>
